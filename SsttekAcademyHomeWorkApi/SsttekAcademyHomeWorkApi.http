@@ -1,4 +1,4 @@
-@SsttekAcademyHomeWorkApi_HostAddress = http://localhost:5055
+@SsttekAcademyHomeWorkApi_HostAddress = http://localhost:5270
 
 GET {{SsttekAcademyHomeWorkApi_HostAddress}}/weatherforecast/
 Accept: application/json

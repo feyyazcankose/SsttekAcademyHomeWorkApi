@@ -1,2 +1,0 @@
-# SsttekAcademyHomeWorkApi
-SsttekAcademyHomeWorkApi
