@@ -5,6 +5,8 @@ namespace SsttekAcademyHomeWorkApi.Models.Commons
     {
         public bool Success { get; set; }
         public string Message { get; set; }
+        
+        public int Code { get; set; }
         public List<string> Errors { get; set; }
 
         public ServiceResult()
@@ -12,9 +14,9 @@ namespace SsttekAcademyHomeWorkApi.Models.Commons
             Errors = new List<string>();
         }
 
-        public static ServiceResult SuccessResult(string message = "İşlem başarılı.")
+        public static ServiceResult SuccessResult(int responseCode= 200 ,string message=null)
         {
-            return new ServiceResult { Success = true, Message = message };
+            return new ServiceResult { Success = true, Message = message,Code = responseCode};
         }
 
         public static ServiceResult ErrorResult(string message = "Bir hata oluştu.", List<string> errors = null)

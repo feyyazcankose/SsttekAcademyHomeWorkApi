@@ -125,3 +125,4 @@
 /Users/feyyazcankose/workspace/ssttek-academy/SsttekAcademyHomeWorkApi/SsttekAcademyHomeWorkApi/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/feyyazcankose/workspace/ssttek-academy/SsttekAcademyHomeWorkApi/SsttekAcademyHomeWorkApi/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
 /Users/feyyazcankose/workspace/ssttek-academy/SsttekAcademyHomeWorkApi/SsttekAcademyHomeWorkApi/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/feyyazcankose/workspace/ssttek-academy/SsttekAcademyHomeWorkApi/SsttekAcademyHomeWorkApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.Annotations.dll

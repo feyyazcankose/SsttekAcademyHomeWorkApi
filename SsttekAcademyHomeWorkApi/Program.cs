@@ -1,7 +1,7 @@
 using System.Text;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using SsttekAcademyHomeWorkApi.Data;
 using SsttekAcademyHomeWorkApi.Middlewares;
 using SsttekAcademyHomeWorkApi.Models.Commons;
@@ -15,6 +15,8 @@ using SsttekAcademyHomeWorkApi.Models.Services.Products;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using SsttekAcademyHomeWorkApi.Models.Services.Roles;
+using SsttekAcademyHomeWorkApi.Models.Services.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,19 +27,18 @@ builder.Services.AddDbContext<AppDbContext>(x =>
     x.UseNpgsql(connectionString);
 });
 
-// Identity servislerini ekleme ve kimlik doğrulama yollarını özelleştirme
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
     {
-        options.Password.RequireDigit = true;      // Şifre için rakam gereksinimi
-        options.Password.RequireLowercase = true;  // Küçük harf gereksinimi
-        options.Password.RequireUppercase = true;  // Büyük harf gereksinimi
-        options.Password.RequireNonAlphanumeric = false;  // Özel karakter gereksinimi yok
-        options.Password.RequiredLength = 6;       // Minimum şifre uzunluğu
+        options.Password.RequireDigit = true;      
+        options.Password.RequireLowercase = true; 
+        options.Password.RequireUppercase = true; 
+        options.Password.RequireNonAlphanumeric = false;  
+        options.Password.RequiredLength = 6; 
     })
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
-// JWT ayarlarını yapılandırın
+// JWT ayarlarını yapılandırması
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 builder.Services.Configure<JwtSettings>(jwtSettings);
 
@@ -75,6 +76,8 @@ builder.Services.AddScoped<IBookService, BookService>(); // BookService için DI
 builder.Services.AddScoped<IAccountService, AccountService>(); // AccountService için DI kaydı
 builder.Services.AddScoped<IAuthService, AuthService>(); // AccountService için DI kaydı
 builder.Services.AddScoped<IUserRepository, UserRepository>(); // UserRepository için DI kaydı
+builder.Services.AddScoped<IUserService, UserService>(); // UserService için DI kaydı
+builder.Services.AddScoped<IRoleService, RoleService>(); // RoleService için DI kaydı
 
 //Model doğrulama hataları için
 builder.Services.Configure<ApiBehaviorOptions>(options =>
@@ -112,9 +115,17 @@ builder.Services.AddSwaggerGen(options =>
     });
 
     options.OperationFilter<AuthorizeCheckOperationFilter>();
+    options.EnableAnnotations();
 });
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var serviceProvider = scope.ServiceProvider;
+    await AppDbInitialize.InitializeRoles(serviceProvider);
+    await AppDbInitialize.InitializeUser(serviceProvider);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -130,5 +141,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseStaticFiles();
 
 app.Run();

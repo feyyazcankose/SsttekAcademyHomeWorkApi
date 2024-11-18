@@ -1,5 +1,6 @@
 using SsttekAcademyHomeWorkApi.Models.Repositories.Users;
 using SsttekAcademyHomeWorkApi.Models.Commons;
+using SsttekAcademyHomeWorkApi.Models.Dtos.Account;
 using SsttekAcademyHomeWorkApi.Models.Dtos.User;
 
 namespace SsttekAcademyHomeWorkApi.Models.Services.Accounts;
@@ -30,7 +31,7 @@ public class AccountService : IAccountService
             return ServiceResult<UserResponseDto>.SuccessResult(account);
         }
 
-        public async Task<ServiceResult> UpdateProfileAsync(string userId, UserUpdateDto account)
+        public async Task<ServiceResult> UpdateProfileAsync(string userId, AccountUpdateDto account)
         {
             var user = await _userRepository.GetUserByIdAsync(userId);
             if (user == null)
@@ -38,15 +39,16 @@ public class AccountService : IAccountService
 
             user.UserName = account.UserName;
             user.Email = account.Email;
+            user.PhoneNumber = account.PhoneNumber;
 
             var result = await _userRepository.UpdateUserAsync(user);
             if (!result.Succeeded)
                 return ServiceResult.ErrorResult("Profil güncellenemedi.", result.Errors.Select(e => e.Description).ToList());
 
-            return ServiceResult.SuccessResult("Profil başarıyla güncellendi.");
+            return ServiceResult.SuccessResult(StatusCodes.Status204NoContent);
         }
 
-        public async Task<ServiceResult> ChangePasswordAsync(string userId, UserPaswordUpdateDto model)
+        public async Task<ServiceResult> ChangePasswordAsync(string userId, AccountPasswordUpdateDto model)
         {
             var user = await _userRepository.GetUserByIdAsync(userId);
             if (user == null)
@@ -56,6 +58,6 @@ public class AccountService : IAccountService
             if (!result.Succeeded)
                 return ServiceResult.ErrorResult("Şifre değiştirilemedi.", result.Errors.Select(e => e.Description).ToList());
 
-            return ServiceResult.SuccessResult("Şifre başarıyla değiştirildi.");
+            return ServiceResult.SuccessResult(StatusCodes.Status204NoContent);
         }
     }

@@ -6,7 +6,7 @@ using SsttekAcademyHomeWorkApi.Models.Services.Products;
 namespace SsttekAcademyHomeWorkApi.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/product")]
 public class ProductController : CustomControllerBase
 {
     private readonly IServiceProvider _serviceProvider;

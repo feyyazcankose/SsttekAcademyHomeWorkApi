@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SsttekAcademyHomeWorkApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+76612825c643b36d7ce8225efc1f69e992783426")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+49a35da20eb8c785b89a2d628e551935044acfa2")]
 [assembly: System.Reflection.AssemblyProductAttribute("SsttekAcademyHomeWorkApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SsttekAcademyHomeWorkApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

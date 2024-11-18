@@ -22,10 +22,13 @@ public class AuthService(
 
         if (result.Succeeded)
         {
-            var token = GenerateJwtToken(user);
+            // Kullanıcıya varsayılan bir rol atayabilirsiniz (isteğe bağlı)
+            await userManager.AddToRoleAsync(user, "User");
+
+            var token = await GenerateJwtToken(user);
             var response = new AuthResponseDto
             {
-                AccessToken = token
+                AccessToken = "Bearer " + token
             };
             return ServiceResult<AuthResponseDto>.SuccessResult(response, "Kayıt başarılı.");
         }
@@ -44,10 +47,10 @@ public class AuthService(
         if (result.Succeeded)
         {
             var user = await userManager.FindByNameAsync(model.Username);
-            var token = GenerateJwtToken(user);
+            var token = await GenerateJwtToken(user);
             var response = new AuthResponseDto
             {
-                AccessToken = token
+                AccessToken = "Bearer " + token
             };
             return ServiceResult<AuthResponseDto>.SuccessResult(response, "Giriş başarılı.");
         }
@@ -58,21 +61,29 @@ public class AuthService(
     public async Task<ServiceResult> LogoutAsync()
     {
         await signInManager.SignOutAsync();
-        return ServiceResult.SuccessResult("Çıkış yapıldı.");
+        return ServiceResult.SuccessResult(StatusCodes.Status200OK,"Çıkış yapıldı.");
     }
 
-    private string GenerateJwtToken(IdentityUser user)
+    private async Task<string> GenerateJwtToken(IdentityUser user)
     {
         var jwtSettings = configuration.GetSection("JwtSettings");
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["SecretKey"]));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
+        // Kullanıcı rollerini alıyoruz
+        var roles = await userManager.GetRolesAsync(user);
+
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.NameIdentifier, user.Id),
             new Claim(ClaimTypes.Name, user.UserName)
-            // Ek claim'ler eklenebilir
         };
+
+        // Roller için claim ekliyoruz
+        foreach (var role in roles)
+        {
+            claims.Add(new Claim(ClaimTypes.Role, role));
+        }
 
         var token = new JwtSecurityToken(
             issuer: jwtSettings["Issuer"],

@@ -23,13 +23,24 @@ namespace SsttekAcademyHomeWorkApi.Controllers
         {
             if (result.Success)
             {
-                return Ok(new { message = result.Message });
+                if (result.Code == StatusCodes.Status201Created)
+                {
+                    return StatusCode(StatusCodes.Status201Created);
+                }
+                else if (result.Code == StatusCodes.Status204NoContent)
+                {
+                    return NoContent();
+                }
+                else
+                {
+                    return Ok(new { message = result.Message });
+                }
             }
             else
             {
                 var problemDetails = new ProblemDetails
                 {
-                    Status = 400, // veya result'tan uygun bir status code alabilirsiniz
+                    Status = result.Code != 0 ? result.Code : 400,
                     Title = "Bir hata oluştu",
                     Detail = result.Errors.FirstOrDefault() ?? result.Message,
                     Instance = HttpContext.Request.Path
@@ -48,9 +59,13 @@ namespace SsttekAcademyHomeWorkApi.Controllers
         {
             if (result.Success)
             {
-                if (result.Data == null)
+                if (result.Data == null || result.Code == StatusCodes.Status204NoContent)
                 {
                     return NoContent();
+                }
+                else if (result.Code == StatusCodes.Status201Created)
+                {
+                    return Created();
                 }
                 else
                 {

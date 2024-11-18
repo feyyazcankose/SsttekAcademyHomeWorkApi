@@ -1,12 +1,20 @@
 {
   "Version": 1,
-  "Hash": "guu1pJyF43fw17RfocOU3mQeKiOUECSbEo07Ep9pgtI=",
+  "Hash": "YBri//pX1OWDisc452r5UeHoG1dIA2lGjU2fV5pOcNQ=",
   "Source": "SsttekAcademyHomeWorkApi",
   "BasePath": "_content/SsttekAcademyHomeWorkApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "SsttekAcademyHomeWorkApi/wwwroot",
+      "Source": "SsttekAcademyHomeWorkApi",
+      "ContentRoot": "/Users/feyyazcankose/workspace/ssttek-academy/SsttekAcademyHomeWorkApi/SsttekAcademyHomeWorkApi/wwwroot/",
+      "BasePath": "_content/SsttekAcademyHomeWorkApi",
+      "Pattern": "**"
+    }
+  ],
   "Assets": [
     {
       "Identity": "/Users/feyyazcankose/.nuget/packages/microsoft.aspnetcore.identity.ui/8.0.10/staticwebassets/V5/css/site.css",
@@ -1147,6 +1155,82 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/feyyazcankose/.nuget/packages/microsoft.aspnetcore.identity.ui/8.0.10/staticwebassets/V5/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Identity": "/Users/feyyazcankose/workspace/ssttek-academy/SsttekAcademyHomeWorkApi/SsttekAcademyHomeWorkApi/wwwroot/doc/jquery.min.js",
+      "SourceId": "SsttekAcademyHomeWorkApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/feyyazcankose/workspace/ssttek-academy/SsttekAcademyHomeWorkApi/SsttekAcademyHomeWorkApi/wwwroot/",
+      "BasePath": "_content/SsttekAcademyHomeWorkApi",
+      "RelativePath": "doc/jquery.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/doc/jquery.min.js"
+    },
+    {
+      "Identity": "/Users/feyyazcankose/workspace/ssttek-academy/SsttekAcademyHomeWorkApi/SsttekAcademyHomeWorkApi/wwwroot/doc/sl-search.js",
+      "SourceId": "SsttekAcademyHomeWorkApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/feyyazcankose/workspace/ssttek-academy/SsttekAcademyHomeWorkApi/SsttekAcademyHomeWorkApi/wwwroot/",
+      "BasePath": "_content/SsttekAcademyHomeWorkApi",
+      "RelativePath": "doc/sl-search.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/doc/sl-search.js"
+    },
+    {
+      "Identity": "/Users/feyyazcankose/workspace/ssttek-academy/SsttekAcademyHomeWorkApi/SsttekAcademyHomeWorkApi/wwwroot/doc/stoplight.min.css",
+      "SourceId": "SsttekAcademyHomeWorkApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/feyyazcankose/workspace/ssttek-academy/SsttekAcademyHomeWorkApi/SsttekAcademyHomeWorkApi/wwwroot/",
+      "BasePath": "_content/SsttekAcademyHomeWorkApi",
+      "RelativePath": "doc/stoplight.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/doc/stoplight.min.css"
+    },
+    {
+      "Identity": "/Users/feyyazcankose/workspace/ssttek-academy/SsttekAcademyHomeWorkApi/SsttekAcademyHomeWorkApi/wwwroot/doc/stoplight.min.js",
+      "SourceId": "SsttekAcademyHomeWorkApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/feyyazcankose/workspace/ssttek-academy/SsttekAcademyHomeWorkApi/SsttekAcademyHomeWorkApi/wwwroot/",
+      "BasePath": "_content/SsttekAcademyHomeWorkApi",
+      "RelativePath": "doc/stoplight.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/doc/stoplight.min.js"
     }
   ]
 }
