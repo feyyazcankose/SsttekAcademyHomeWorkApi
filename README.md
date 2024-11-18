@@ -1,4 +1,4 @@
-# Kitap Yönetim Projesi - Üyelik ve Rol Yönetimi Entegrasyonu
+# Kitap Yönetim Projesi - Üyelik ve Rol Yönetimi Entegrasyonu - Hafta 8
 
 ## Proje Özeti
 Bu hafta, Kitap Yönetim Projemize **Üyelik ve Rol Yönetim Sistemi** entegrasyonu ekledik. Bu entegrasyon, kullanıcı ve rol yönetimini kolaylaştırırken güçlü bir erişim kontrolü sağlar.
