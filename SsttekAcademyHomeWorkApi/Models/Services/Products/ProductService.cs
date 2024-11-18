@@ -2,6 +2,8 @@ using Microsoft.Extensions.Caching.Memory;
 using SsttekAcademyHomeWorkApi.Models.Entities;
 using SsttekAcademyHomeWorkApi.Models.Services;
 
+namespace SsttekAcademyHomeWorkApi.Models.Services.Products;
+
 public class ProductService : IProductService
 {
     private readonly IMemoryCache _cache;

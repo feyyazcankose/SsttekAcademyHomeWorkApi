@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using SsttekAcademyHomeWorkApi.Models.Dtos;
 using SsttekAcademyHomeWorkApi.Models.Entities;
-using SsttekAcademyHomeWorkApi.Models.Services;
+using SsttekAcademyHomeWorkApi.Models.Services.Products;
 
 namespace SsttekAcademyHomeWorkApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class ProductController : ControllerBase
+public class ProductController : CustomControllerBase
 {
     private readonly IServiceProvider _serviceProvider;
     private readonly IProductService _productService;

@@ -1,6 +1,6 @@
 using SsttekAcademyHomeWorkApi.Models.Entities;
 
-namespace SsttekAcademyHomeWorkApi.Models.Services;
+namespace SsttekAcademyHomeWorkApi.Models.Services.Products;
 
 public class SpecialProductService : IProductService
 {
